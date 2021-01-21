@@ -16,12 +16,13 @@ socket.on('estadoActual', function(data) {
 
 socket.on('ultimos4', function(data) {
     //    actualizaHTML(data);
-    var audio = new Audio('audio/new-ticket.mp3')
-    audio.play();
     data.ultimos4.forEach((element, idx) => {
         $(`#lblTicket${idx + 1}`).text(`Ticket ${element.numero}`);
         $(`#lblEscritorio${idx + 1}`).text(`Escritorio ${element.escritorio}`);
     });
+    var audio = new Audio('audio/new-ticket.mp3')
+    audio.play();
+
 })
 
 function actualizaHTML(array) {
